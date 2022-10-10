@@ -6,11 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Options({ singleQuestion }) {
     const [viewAns, setViewAns] = useState(false);
-    const { correctAnswer, question, options } = singleQuestion;
-
+    const {id, correctAnswer, question, options } = singleQuestion;
+console.log(id)
     const handleClick = (event) => {
         if (event.target.value === correctAnswer) {
-            console.log('correctAnswer');
             toast.success('Correct Answer!');
         }
         else {
@@ -36,18 +35,21 @@ function Options({ singleQuestion }) {
 
                     </div>
                     <div className='min-w-fit'>
-                        <ToggleSwitch handleViewAnswer={handleViewAnswer}></ToggleSwitch>
+                        <ToggleSwitch
+                            handleViewAnswer={handleViewAnswer}>
+                        </ToggleSwitch>
+                        
                     </div>
                 </div>
-                {viewAns && <p className='text-center font-bold'>Correct answer is : <span className='text-blue-600'>
+                {viewAns && id && <p className='text-center font-bold'>Correct answer is : <span className='text-blue-600'>
                     {correctAnswer}
                 </span></p>}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     {options.map((option, idx) =>
                         <div key={idx} className="flex items-center gap-4 border rounded-md p-4 bg-slate-200">
                             <Radio
-                                id="united-state"
-                                name="countries"
+                                id="id"
+                                name="name"
                                 value={option}
                                 defaultChecked={false}
                                 onClick={(event) => handleClick(event)}
