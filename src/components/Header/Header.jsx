@@ -1,15 +1,14 @@
 import { Navbar } from 'flowbite-react';
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/header-logo.png'
-
 function Header() {
 
     return (
         <Navbar
             fluid={true}
             rounded={true}
-            style={{ background: 'transparent', position: 'absolute', top: '0', minWidth: '100%' }}
+            style={{ background: 'transparent' }}
         >
             <Navbar.Brand>
                 <Link to='/'>
@@ -25,17 +24,18 @@ function Header() {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
-                <Navbar.Link
+                <NavLink
                     to="/"
+                    className='text-white'
                 >
                     Home
-                </Navbar.Link>
-                <Navbar.Link to="/">
-                    About
-                </Navbar.Link>
-                <Navbar.Link to="/">
-                    Services
-                </Navbar.Link>
+                </NavLink>
+                <NavLink to="/statistics" className='text-white'>
+                    Statistics
+                </NavLink>
+                <NavLink to="/blog" className='text-white'>
+                    Blog
+                </NavLink>
             </Navbar.Collapse>
         </Navbar>
     )
