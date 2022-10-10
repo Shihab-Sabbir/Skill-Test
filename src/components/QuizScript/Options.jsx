@@ -1,6 +1,8 @@
 import { Label, Radio } from 'flowbite-react';
 import React, { useState } from 'react'
 import ToggleSwitch from './ToggleSwitch';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Options({ singleQuestion }) {
     const [viewAns, setViewAns] = useState(false);
@@ -8,13 +10,14 @@ function Options({ singleQuestion }) {
 
     const handleClick = (event) => {
         if (event.target.value === correctAnswer) {
-            console.log('correctAnswer')
+            console.log('correctAnswer');
+            toast.success('Correct Answer!');
         }
         else {
-            console.log('wrong answer')
+            toast.error('Wrong Answer!');
         }
     }
-    
+
     const handleViewAnswer = () => {
         setViewAns(!viewAns);
     }
