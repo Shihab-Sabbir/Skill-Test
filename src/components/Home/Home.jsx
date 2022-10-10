@@ -9,7 +9,7 @@ function Home() {
     <div className='header-container py-20 flex justify-center px-5'>
       <div className='grid grid-cols-1 sm:grid-cols-2 
       md:grid-cols-3 lg:grid-cols-4 gap-2'>
-        {quizes?.map(quiz => <Quiz quiz={quiz}></Quiz>)}
+        {quizes?.map(quiz => <Quiz key={quiz.id} quiz={quiz}></Quiz>)}
       </div>
     </div>
   )
