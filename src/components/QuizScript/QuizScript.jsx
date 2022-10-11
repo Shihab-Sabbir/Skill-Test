@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Options from './Options';
 
 function QuizScript() {
+    const [answered, setAnswered] = useState([]);
+    const [correctAns, setCorrectAns] = useState(0)
     const script = useLoaderData();
     const { id, name, questions } = script.data;
+
+
+
+
     return (
         <div className='py-10'>
             <p className='text-center font-bold text-2xl text-white'>{name} Quiz</p>
-            <div className='grid grid-cols-1 gap-4 p-4'>
-                {questions?.map(question => <Options key={question.id} singleQuestion={question}></Options>)}
+            <div className='text-center  flex flex-col md:flex-row justify-evenly p-2 border m-4'>
+                <p className='text-white'>Total Question  : {questions.length}</p>
+                <p className='text-white'>Answered Question : {answered.length}</p>
+                <p className='text-white'>Correct Answer : {correctAns} </p>
+                <p className='text-white'>Wrong Answer : {answered.length - correctAns} </p>
+            </div>
+            <div className='grid grid-cols-1 gap-4 p-1 sm:p-2 md:p-4'>
+                {questions?.map(question => <Options key={question.id} answered={answered} setAnswered={setAnswered} singleQuestion={question} setCorrectAns={setCorrectAns}></Options>)}
             </div>
         </div>
     )

@@ -4,16 +4,35 @@ import ToggleSwitch from './ToggleSwitch';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Options({ singleQuestion }) {
+function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
     const [viewAns, setViewAns] = useState(false);
-    const {id, correctAnswer, question, options } = singleQuestion;
-console.log(id)
-    const handleClick = (event) => {
+    const { id, correctAnswer, question, options } = singleQuestion;
+   
+    const handleClick = (event, id) => {
+        console.log('length : ', answered)
+        if (answered.length === 0) {
+            setAnswered(1)
+            setAnswered([id])
+        }
+        else {
+            let answeredQus = [...answered]
+            let isAnswered = answeredQus.find(ques => ques === id);
+            console.log(isAnswered, !isAnswered)
+            if (!isAnswered) {
+                setAnswered([...answered,id])
+            }
+        }
+
         if (event.target.value === correctAnswer) {
             toast.success('Correct Answer!');
+            event.target.parentNode.classList.remove('bg-slate-200');
+            event.target.parentNode.classList.add('bg-green-200');
+            setCorrectAns(prev => prev + 1);
         }
         else {
             toast.error('Wrong Answer!');
+            event.target.parentNode.classList.remove('bg-slate-200');
+            event.target.parentNode.classList.add('bg-red-200');
         }
     }
 
@@ -22,14 +41,14 @@ console.log(id)
     }
 
     return (
-        <div className='border-2 p-1 sm:p-2 md:p-4 rounded-md bg-slate-300'>
+        <div className='border-2 p-2 sm:p-3 md:p-4 rounded-md bg-slate-300'>
             <fieldset
                 className="flex flex-col gap-4"
                 id="radio"
             >
                 <div className='flex justify-between items-center'>
                     <div>
-                        <legend className='font-bold pb-3 text-xs sm:text-sm md:text-base'>
+                        <legend className='font-bold pb-3 pr-1 text-xs sm:text-sm md:text-base'>
                             {question}
                         </legend>
 
@@ -38,10 +57,10 @@ console.log(id)
                         <ToggleSwitch
                             handleViewAnswer={handleViewAnswer}>
                         </ToggleSwitch>
-                        
+
                     </div>
                 </div>
-                {viewAns && <p className='text-center font-bold'>Correct answer is : <span className='text-blue-600'>
+                {viewAns && <p className='text-center font-bold text-xs sm:text-sm md:text-base'>Correct answer is : <span className='text-blue-600'>
                     {correctAnswer}
                 </span></p>}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
@@ -52,7 +71,7 @@ console.log(id)
                                 name="name"
                                 value={option}
                                 defaultChecked={false}
-                                onClick={(event) => handleClick(event)}
+                                onClick={event => handleClick(event, id)}
                             />
                             <Label htmlFor="united-state">
                                 {option}
