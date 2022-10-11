@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
     const [viewAns, setViewAns] = useState(false);
     const { id, correctAnswer, question, options } = singleQuestion;
-   
+
     const handleClick = (event, id) => {
         console.log('length : ', answered)
         if (answered.length === 0) {
@@ -19,7 +19,7 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
             let isAnswered = answeredQus.find(ques => ques === id);
             console.log(isAnswered, !isAnswered)
             if (!isAnswered) {
-                setAnswered([...answered,id])
+                setAnswered([...answered, id])
             }
         }
 
@@ -41,14 +41,14 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
     }
 
     return (
-        <div className='border-2 p-2 sm:p-3 md:p-4 rounded-md bg-slate-300'>
+        <div className='p-2 sm:p-3 md:p-4 rounded-md bg-gray-100'>
             <fieldset
                 className="flex flex-col gap-4"
                 id="radio"
             >
                 <div className='flex justify-between items-center'>
                     <div>
-                        <legend className='font-bold pb-3 pr-1 text-xs sm:text-sm md:text-base'>
+                        <legend className='font-bold pb-3 pr-1 lg:pr-5 text-xs sm:text-sm md:text-base font-mono text-justify'>
                             {question}
                         </legend>
 
@@ -60,12 +60,12 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
 
                     </div>
                 </div>
-                {viewAns && <p className='text-center font-bold text-xs sm:text-sm md:text-base'>Correct answer is : <span className='text-blue-600'>
+                {viewAns && <p className='text-center font-bold text-xs sm:text-sm md:text-base font-mono'>Correct answer is : <span className='text-blue-600'>
                     {correctAnswer}
                 </span></p>}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 font-mono'>
                     {options.map((option, idx) =>
-                        <div key={idx} className="flex items-center gap-4 border rounded-md p-4 bg-slate-200">
+                        <div key={idx} className="flex items-center gap-4 border rounded-md p-4 bg-slate-200 hover:bg-slate-100">
                             <Radio
                                 id="id"
                                 name="name"
@@ -73,7 +73,7 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
                                 defaultChecked={false}
                                 onClick={event => handleClick(event, id)}
                             />
-                            <Label htmlFor="united-state">
+                            <Label htmlFor="quiz">
                                 {option}
                             </Label>
                         </div>

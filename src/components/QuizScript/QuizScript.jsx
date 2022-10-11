@@ -14,13 +14,13 @@ function QuizScript() {
     return (
         <div className='py-10'>
             <p className='text-center font-bold text-2xl text-white'>{name} Quiz</p>
-            <div className='text-center  flex flex-col md:flex-row justify-evenly p-2 border m-4'>
+            <div className='text-center  flex flex-col md:flex-row justify-evenly p-2 border m-4 lg:max-w-[970px] lg:mx-auto lg:p-4'>
                 <p className='text-white'>Total Question  : {questions.length}</p>
                 <p className='text-white'>Answered Question : {answered.length}</p>
                 <p className='text-white'>Correct Answer : {correctAns} </p>
                 <p className='text-white'>Wrong Answer : {answered.length - correctAns} </p>
             </div>
-            <div className='grid grid-cols-1 gap-4 p-1 sm:p-2 md:p-4'>
+            <div className='grid grid-cols-1 gap-4 p-1 sm:p-2 md:p-4 lg:max-w-[1000px] mx-auto'>
                 {questions?.map(question => <Options key={question.id} answered={answered} setAnswered={setAnswered} singleQuestion={question} setCorrectAns={setCorrectAns}></Options>)}
             </div>
         </div>
