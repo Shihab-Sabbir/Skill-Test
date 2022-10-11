@@ -21,7 +21,7 @@ function Quiz({ quiz }) {
                             </p>
                         </div>
                         <div>
-                            <Link to={`${name}/${id}`}>
+                            <Link to={`../${name}/${id}`}>
                                 <Button
                                     color="light"
                                 >
@@ -36,4 +36,4 @@ function Quiz({ quiz }) {
     )
 }
 
-export default Quiz
+export default Quiz;

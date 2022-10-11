@@ -7,6 +7,7 @@ import './App.css'
 import Statistics from './components/Statistics/Statistics';
 import Blog from './components/Blog/Blog';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import Topic from './components/Topic/Topic';
 function App() {
   const router = createBrowserRouter([
     {
@@ -30,6 +31,11 @@ function App() {
         },
         {
           path: 'blog', element: <Blog />
+        },
+        {
+          path: 'topic', loader: async () => {
+            return fetch('https://openapi.programming-hero.com/api/quiz')
+          }, element: <Topic />
         }
       ]
     },

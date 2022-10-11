@@ -7,10 +7,6 @@ function QuizScript() {
     const [correctAns, setCorrectAns] = useState(0)
     const script = useLoaderData();
     const { id, name, questions } = script.data;
-
-
-
-
     return (
         <div className='py-10'>
             <p className='text-center font-bold text-2xl text-white'>{name} Quiz</p>

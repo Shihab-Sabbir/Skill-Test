@@ -28,6 +28,10 @@ function Header() {
                     to="/"
                     end >Home
                 </NavLink>
+                <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)}
+                    to="/topic"
+                    end >Topic
+                </NavLink>
                 <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)} to="/statistics" end  >
                     Statistics
                 </NavLink>

@@ -7,17 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }) {
     const [viewAns, setViewAns] = useState(false);
     const { id, correctAnswer, question, options } = singleQuestion;
-
+    const correctAnsId = [];
     const handleClick = (event, id) => {
-        console.log('length : ', answered)
+        let answeredQus = [...answered]
+        let isAnswered = answeredQus.find(ques => ques === id);
+
         if (answered.length === 0) {
-            setAnswered(1)
             setAnswered([id])
         }
         else {
-            let answeredQus = [...answered]
-            let isAnswered = answeredQus.find(ques => ques === id);
-            console.log(isAnswered, !isAnswered)
             if (!isAnswered) {
                 setAnswered([...answered, id])
             }
@@ -27,13 +25,17 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }
             toast.success('Correct Answer!');
             event.target.parentNode.classList.remove('bg-slate-200');
             event.target.parentNode.classList.add('bg-green-200');
-            setCorrectAns(prev => prev + 1);
+            if (!isAnswered) {
+                setCorrectAns(prev => prev + 1);
+            }
         }
+
         else {
             toast.error('Wrong Answer!');
             event.target.parentNode.classList.remove('bg-slate-200');
             event.target.parentNode.classList.add('bg-red-200');
         }
+        console.log(correctAnsId);
     }
 
     const handleViewAnswer = () => {
