@@ -2,7 +2,7 @@
 
 To Explore Live Site please Click , [Live Here](https://heartfelt-snickerdoodle-ea72c3.netlify.app/)
 
-> ###### Site id Deployed in Netlify.com
+> ###### Site is Deployed in Netlify.com
 
 ## Features
 
