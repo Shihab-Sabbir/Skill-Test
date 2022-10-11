@@ -21,7 +21,7 @@ function QuizScript() {
                 <p className='text-white'>Wrong Answer : {answered.length - correctAns} </p>
             </div>
             <div className='grid grid-cols-1 gap-4 p-1 sm:p-2 md:p-4 lg:max-w-[1000px] mx-auto'>
-                {questions?.map(question => <Options key={question.id} answered={answered} setAnswered={setAnswered} singleQuestion={question} setCorrectAns={setCorrectAns}></Options>)}
+                {questions?.map((question, idx) => <Options key={question.id} answered={answered} setAnswered={setAnswered} index={idx} singleQuestion={question} setCorrectAns={setCorrectAns}></Options>)}
             </div>
         </div>
     )

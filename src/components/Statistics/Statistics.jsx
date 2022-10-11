@@ -17,8 +17,8 @@ import {
 function Statistics() {
     const newData = useLoaderData();
     return (
-        <div className='p-5 w-[100vw] h-[80vh]'>
-            <ResponsiveContainer width="100%" height="100%">
+        <div className='p-5 w-[100vw] h-[80vh] '>
+            <ResponsiveContainer width="100%" height="100%" >
                 {/* <BarChart
                     maxBarSize={20}
                     data={newData.data}
@@ -67,12 +67,12 @@ function Statistics() {
                 >
                     <CartesianGrid stroke="#f5f5f5" />
                     <XAxis dataKey="name" />
-                    <YAxis dataKey='total' />
+                    <YAxis width={10} />
                     <Tooltip />
                     {/* <Legend /> */}
                     <Area type="monotone" dataKey="total" tooltipType='none' fill="#8884d8" stroke="#8884d8" />
-                    <Bar dataKey="total" barSize={20} fill="#413ea0" />
-                    <Line type="monotone" dataKey="total" stroke="#ff7300" tooltipType='none'/>
+                    <Bar dataKey="total" barSize={20} fill="#ffffff" />
+                    <Line type="monotone" dataKey="total" stroke="#ff7300" tooltipType='none' />
                     <Scatter dataKey="cnt" fill="red" />
                 </ComposedChart>
 

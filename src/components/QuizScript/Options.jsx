@@ -4,7 +4,7 @@ import ToggleSwitch from './ToggleSwitch';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
+function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }) {
     const [viewAns, setViewAns] = useState(false);
     const { id, correctAnswer, question, options } = singleQuestion;
 
@@ -48,8 +48,8 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered }) {
             >
                 <div className='flex justify-between items-center'>
                     <div>
-                        <legend className='font-bold pb-3 pr-1 lg:pr-5 text-xs sm:text-sm md:text-base font-mono text-justify'>
-                            {question}
+                        <legend className='font-bold p-3 pr-3 lg:pr-5 text-xs sm:text-sm md:text-base font-mono text-justify'>
+                            {index + 1}.  {question.replace(/(<([^>]+)>)/ig, '')}
                         </legend>
 
                     </div>

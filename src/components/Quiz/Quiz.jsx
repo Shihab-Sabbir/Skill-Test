@@ -9,7 +9,7 @@ function Quiz({ quiz }) {
     }
     return (
         <div>
-            <div className="max-w-sm">
+            <div className="md:max-w-[280px]">
                 <Card imgSrc={logo}>
                     <div className='flex justify-between items-center '>
                         <div>
