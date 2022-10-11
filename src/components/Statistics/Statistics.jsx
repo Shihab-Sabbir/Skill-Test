@@ -68,12 +68,12 @@ function Statistics() {
                     <CartesianGrid stroke="#f5f5f5" />
                     <XAxis dataKey="name" />
                     <YAxis width={10} />
-                    <Tooltip />
+                    <Tooltip style={{ background: 'black' }} />
                     {/* <Legend /> */}
                     <Area type="monotone" dataKey="total" tooltipType='none' fill="#8884d8" stroke="#8884d8" />
                     <Bar dataKey="total" barSize={20} fill="#ffffff" />
                     <Line type="monotone" dataKey="total" stroke="#ff7300" tooltipType='none' />
-                    <Scatter dataKey="cnt" fill="red" />
+                    <Scatter dataKey="total" fill="blue" />
                 </ComposedChart>
 
 
