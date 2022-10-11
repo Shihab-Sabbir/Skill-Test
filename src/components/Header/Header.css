@@ -1,0 +1,9 @@
+.active {
+    border: 1px solid white;
+    color: black;
+    font-size: 18px;
+    line-height: 28px;
+    padding: 8px;
+    text-align: center;
+    background-color: gainsboro;
+}

@@ -1,14 +1,17 @@
 import { Button, Card } from 'flowbite-react'
 import React from 'react'
 import { Link } from 'react-router-dom';
-
+import logoGit from '../../assets/git.png'
 function Quiz({ quiz }) {
-    const { name, logo, total, id } = quiz;
+    let { name, logo, total, id } = quiz;
+    if (logo === "https://live.staticflickr.com/65535/52412639027_5692c15b3f_o.png") {
+        logo = logoGit;
+    }
     return (
         <div>
             <div className="max-w-sm">
                 <Card imgSrc={logo}>
-                    <div className='flex justify-between items-center'>
+                    <div className='flex justify-between items-center '>
                         <div>
                             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                 {name}

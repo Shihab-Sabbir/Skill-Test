@@ -22,14 +22,14 @@ console.log(id)
     }
 
     return (
-        <div className='border-2 p-4 rounded-md bg-slate-300'>
+        <div className='border-2 p-1 sm:p-2 md:p-4 rounded-md bg-slate-300'>
             <fieldset
                 className="flex flex-col gap-4"
                 id="radio"
             >
                 <div className='flex justify-between items-center'>
                     <div>
-                        <legend className='font-bold pb-3'>
+                        <legend className='font-bold pb-3 text-xs sm:text-sm md:text-base'>
                             {question}
                         </legend>
 
@@ -41,7 +41,7 @@ console.log(id)
                         
                     </div>
                 </div>
-                {viewAns && id && <p className='text-center font-bold'>Correct answer is : <span className='text-blue-600'>
+                {viewAns && <p className='text-center font-bold'>Correct answer is : <span className='text-blue-600'>
                     {correctAnswer}
                 </span></p>}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>

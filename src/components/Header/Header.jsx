@@ -1,9 +1,10 @@
 import { Navbar } from 'flowbite-react';
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/header-logo.png'
+import logo from '../../assets/logo.png'
+import './Header.css'
 function Header() {
-
+    const notActive = 'text-white text-center border p-2 hover:bg-slate-500 md:hover:bg-transparent md:border-0 text-lg'
     return (
         <Navbar
             fluid={true}
@@ -11,11 +12,10 @@ function Header() {
             style={{ background: 'transparent' }}
         >
             <Navbar.Brand>
-                <Link to='/'>
+                <Link to='/' className='flex'>
                     <img
                         src={logo}
-                        className="mr-3 h-10 w-10 sm:h-9"
-                        alt="Flowbite Logo"
+                        className="mr-3 h-6 sm:h-9"
                     />
                     <span className="self-center whitespace-nowrap text-xl font-semibold text-white uppercase">
                         Skill Test
@@ -24,16 +24,14 @@ function Header() {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
-                <NavLink
+                <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)}
                     to="/"
-                    className='text-white'
-                >
-                    Home
+                    end >Home
                 </NavLink>
-                <NavLink to="/statistics" className='text-white'>
+                <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)} to="/statistics" end  >
                     Statistics
                 </NavLink>
-                <NavLink to="/blog" className='text-white'>
+                <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)} to="/blog" end>
                     Blog
                 </NavLink>
             </Navbar.Collapse>
