@@ -1,10 +1,10 @@
-import React from 'react'
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext } from 'react'
 import Quiz from '../Quiz/Quiz';
 import logo from '../../assets/logo-2.png'
+import { UserContext } from '../../Layout/Layout';
 
 function Topic() {
-    const data = useLoaderData();
+    const data = useContext(UserContext);
     const quizes = data.data;
     return (
         <div className='py-2 flex flex-col justify-center px-5'>

@@ -1,10 +1,6 @@
 import React from 'react'
-import { Link, useLoaderData } from 'react-router-dom';
-import Quiz from '../Quiz/Quiz';
-import logo from '../../assets/logo-2.png'
+import { Link } from 'react-router-dom';
 function Home() {
-  const data = useLoaderData();
-  const quizes = data.data;
   return (
     <div className='py-2 flex flex-col justify-center px-5 w-screen'>
       <div className='text-white mx-auto pt-[5%]'>

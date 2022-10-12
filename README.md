@@ -11,6 +11,7 @@ To Explore Live Site please Click , [Live Here](https://heartfelt-snickerdoodle-
 - View correct answer , with just a simple click.
 - Smooth routing system.
 - Errorpage assistance in any kind of fault.
+- Responsive UI for Desktop , Tablet and small devices like mobile.
 - User frindly UI.
 - Simple chart view of question and topic in statictics page.
 - A sort and simple but effective Q&A section on react feature.
@@ -19,6 +20,7 @@ To Explore Live Site please Click , [Live Here](https://heartfelt-snickerdoodle-
 
 - React JS
 - React Router
+- React Context API
 - React Tailwind CSS
 - Rechart
 - React Toastify

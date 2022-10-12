@@ -11,11 +11,11 @@ import Topic from './components/Topic/Topic';
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/', element: <Layout />, errorElement: <ErrorPage />, children: [
+      path: '/', loader: async () => {
+        return fetch('https://openapi.programming-hero.com/api/quiz')
+      }, element: <Layout />, errorElement: <ErrorPage />, children: [
         {
-          path: '/', loader: async () => {
-            return fetch('https://openapi.programming-hero.com/api/quiz')
-          }, element: <Home />
+          path: '/', element: <Home />
         },
         {
           path: ':name/:id',
@@ -25,17 +25,13 @@ function App() {
           element: <QuizScript />
         },
         {
-          path: 'statistics', loader: async () => {
-            return fetch('https://openapi.programming-hero.com/api/quiz')
-          }, element: <Statistics />
+          path: 'statistics', element: <Statistics />
         },
         {
           path: 'blog', element: <Blog />
         },
         {
-          path: 'topic', loader: async () => {
-            return fetch('https://openapi.programming-hero.com/api/quiz')
-          }, element: <Topic />
+          path: 'topic', element: <Topic />
         }
       ]
     },

@@ -7,7 +7,7 @@ function Blog() {
             <Accordion>
                 <Accordion.Panel>
                     <Accordion.Title>
-                        Why use React Router?
+                        Why to use React Router?
                     </Accordion.Title>
                     <Accordion.Content>
                         <p className="mb-2 text-white text-justify">
@@ -19,7 +19,7 @@ function Blog() {
                 </Accordion.Panel>
                 <Accordion.Panel>
                     <Accordion.Title>
-                        What is Context API and How it works?
+                        How does Context API work?
                     </Accordion.Title>
                     <Accordion.Content>
                         <p className="mb-2 text-white text-justify">

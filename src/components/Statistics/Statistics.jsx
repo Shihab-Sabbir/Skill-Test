@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLoaderData } from 'react-router-dom';
 // import { BarChart, LineChart, Line, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import {
@@ -14,8 +14,9 @@ import {
     Scatter,
     ResponsiveContainer,
 } from 'recharts';
+import { UserContext } from '../../Layout/Layout';
 function Statistics() {
-    const newData = useLoaderData();
+    const newData = useContext(UserContext);
     return (
         <div className='p-5 w-[100vw] h-[80vh] '>
             <ResponsiveContainer width="100%" height="100%" >
