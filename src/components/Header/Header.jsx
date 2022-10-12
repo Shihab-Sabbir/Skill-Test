@@ -11,7 +11,7 @@ function Header() {
             rounded={true}
             style={{ background: 'transparent' }}
         >
-            <Navbar.Brand>
+            <div>
                 <Link to='/' className='flex'>
                     <img
                         src={logo}
@@ -21,7 +21,7 @@ function Header() {
                         Skill Test
                     </span>
                 </Link>
-            </Navbar.Brand>
+            </div>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <NavLink className={({ isActive }) => (isActive ? ` active` : `${notActive}`)}

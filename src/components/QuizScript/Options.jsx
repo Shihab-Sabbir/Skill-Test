@@ -1,5 +1,5 @@
 import { Label, Radio } from 'flowbite-react';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ToggleSwitch from './ToggleSwitch';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,8 +7,18 @@ import 'react-toastify/dist/ReactToastify.css';
 function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }) {
     const [viewAns, setViewAns] = useState(false);
     const { id, correctAnswer, question, options } = singleQuestion;
-    const correctAnsId = [];
+    const answerbody = useRef();
     const handleClick = (event, id) => {
+        answerbody.current.classList.add('pointer-events-none')
+        let quiz = event.target.parentNode.parentNode.children;
+        quiz = [...quiz]
+        for (const item of quiz) {
+            const target = item.children[1].innerText;
+            if (target === correctAnswer.replace(/\s{2,}/g, ' ')) {
+                item.classList.remove('bg-slate-200');
+                item.classList.add('bg-green-200');
+            }
+        }
         let answeredQus = [...answered]
         let isAnswered = answeredQus.find(ques => ques === id);
 
@@ -22,6 +32,7 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }
         }
 
         if (event.target.value === correctAnswer) {
+            event.target.parentNode.checked = true;
             toast.success('Correct Answer!');
             event.target.parentNode.classList.remove('bg-slate-200');
             event.target.parentNode.classList.add('bg-green-200');
@@ -31,11 +42,11 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }
         }
 
         else {
+            event.target.parentNode.checked = true;
             toast.error('Wrong Answer!');
             event.target.parentNode.classList.remove('bg-slate-200');
             event.target.parentNode.classList.add('bg-red-200');
         }
-        console.log(correctAnsId);
     }
 
     const handleViewAnswer = () => {
@@ -65,15 +76,15 @@ function Options({ singleQuestion, setCorrectAns, setAnswered, answered, index }
                 {viewAns && <p className='text-center font-bold text-xs sm:text-sm md:text-base font-mono'>Correct answer is : <span className='text-blue-600'>
                     {correctAnswer}
                 </span></p>}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 font-mono'>
+                <div ref={answerbody} className='grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 font-mono'>
                     {options.map((option, idx) =>
-                        <div key={idx} className="flex items-center gap-4 border rounded-md p-4 bg-slate-200 hover:bg-slate-100">
+                        <div key={idx} className="flex items-center gap-4 border rounded-md p-4 bg-slate-200 hover:border hover:border-slate-600">
                             <Radio
                                 id="id"
-                                name="name"
+                                name={idx} 
                                 value={option}
-                                defaultChecked={false}
                                 onClick={event => handleClick(event, id)}
+                                defaultChecked={false}
                             />
                             <Label htmlFor="quiz">
                                 {option}
